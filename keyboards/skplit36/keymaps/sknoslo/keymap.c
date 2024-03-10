@@ -9,6 +9,7 @@
 #define NUM 3
 #define SYM 4
 #define FUN 5
+#define GAME 6
 
 #define XXX KC_NO
 #define ___ KC_TRANSPARENT
@@ -33,6 +34,8 @@
 #define ORGUI OSM(MOD_RGUI)
 #define ORCTL OSM(MOD_RCTL)
 #define ORSFT OSM(MOD_RSFT)
+
+#define GAME_TG TG(GAME)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      /*
@@ -153,7 +156,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
       * │F6 │F7 │f8 │F9 │F10│       │   │SFT│CTL│ALT│GUI│
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │   │   │   │F11│F12│       │   │GUI│   │   │   │
+      * │   │   │   │F11│F12│       │TGM│GUI│   │   │   │
       * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
       *           ┌───┐                   ┌───┐
       *           │DEL├───┐           ┌───┤   │
@@ -164,9 +167,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [FUN] = LAYOUT_split_3x5_3(
       KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                XXX,     XXX,      XXX,     XXX,     XXX,
       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,                                XXX,   ORSFT,    ORCTL,   OLALT,   ORGUI,
-        XXX,     XXX,     XXX,  KC_F11,  KC_F12,                                XXX, KC_RGUI,      XXX,     XXX,     XXX,
+        XXX,     XXX,     XXX,  KC_F11,  KC_F12,                            GAME_TG, KC_RGUI,      XXX,     XXX,     XXX,
                                 KC_DEL,  KC_ESC,  KC_TAB,              XXX,     XXX,     ___
+    ),
 
+     /*
+      * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
+      * │TAB│ Q │ W │ E │ R │       │F1 │F2 │F3 │F4 │F5 │
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │SFT│ A │ S │ D │ F │       │F6 │F7 │F8 │F9 │F10│
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │CTL│ X │ C │ V │ B │       │ N │ M │   │F11│F12│
+      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
+      *           ┌───┐                   ┌───┐
+      *           │TAB├───┐           ┌───┤   │
+      *           └───┤ESC├───┐   ┌───┤   ├───┘
+      *               └───┤   │   │TGM├───┘
+      *                   └───┘   └───┘
+      */
+    [GAME] = LAYOUT_split_3x5_3(
+      KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,                              KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,
+     KC_LSFT,    KC_A,    KC_S,   CTL_D,   SFT_F,                              KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,
+     KC_LCTL,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,     XXX,  KC_F11,  KC_F12,
+                                   KC_TAB, KC_ESC, KC_SPC,            GAME_TG,   XXX,     XXX
     )
 };
 
