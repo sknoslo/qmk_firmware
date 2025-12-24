@@ -14,10 +14,12 @@
 #define XXX KC_NO
 #define ___ KC_TRANSPARENT
 
+#define ALT_S LALT_T(KC_S)
 #define CTL_D LCTL_T(KC_D)
 #define SFT_F LSFT_T(KC_F)
 #define SFT_J RSFT_T(KC_J)
 #define CTL_K RCTL_T(KC_K)
+#define ALT_L LALT_T(KC_L)
 
 #define NAV_ESC LT(NAV, KC_ESC)
 #define DEV_TAB LT(DEV, KC_TAB)
@@ -42,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
       * │ Q │ W │ E │ R │ T │       │ Y │ U │ I │ O │ P │
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │ A │ S │cD │sF │ G │       │ H │sJ │cK │ L │ ' │
+      * │ A │aS │cD │sF │ G │       │ H │sJ │cK │aL │ ' │
       * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
       * │ Z │ X │ C │ V │ B │       │ N │ M │ , │ . │ / │
       * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
@@ -54,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       */
     [BASE] = LAYOUT_split_3x5_3(
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
-        KC_A,    KC_S,   CTL_D,   SFT_F,    KC_G,                               KC_H,   SFT_J,   CTL_K,    KC_L,    KC_QUOT,
+        KC_A,   ALT_S,   CTL_D,   SFT_F,    KC_G,                               KC_H,   SFT_J,   CTL_K,   ALT_L,    KC_QUOT,
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M, KC_COMM,    KC_DOT,  KC_SLSH,
                                    KC_DEL, NAV_ESC, DEV_TAB,        NUM_SPC, SYM_ENT, FUN_BSPC
     ),
